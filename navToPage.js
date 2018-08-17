@@ -13,27 +13,6 @@ const navToPage = async pageName => {
     case categoryEnum.home:
       renderHomePage(page);
       break;
-    case categoryEnum.courses:
-      data = await reqwest("GET", getUrls[pageName].all);
-      renderCoursesToPage(JSON.parse(data).data, page);
-      break;
-    case categoryEnum.news:
-      data = await reqwest("GET", getUrls[pageName].all);
-      renderNewsToPage(JSON.parse(data), page);
-      break;
-    case categoryEnum.notices:
-      data = await reqwest("GET", getUrls[pageName].all);
-      renderNoticesToPage(JSON.parse(data), page);
-      break;
-    case categoryEnum.people:
-      data = await reqwest("GET", getUrls[pageName].all);
-      await renderPeopleToPage(JSON.parse(data).list, page);
-      break;
-    case categoryEnum.comments:
-      data = await reqwest("GET", getUrls[pageName].all);
-      data = parser.parseFromString(data, "text/html");
-      renderCommentsToPage(data, page);
-      break;
   }
   if (thisLoadCheck == concurrencyCheck) {
     spinner.style.display = "none";
