@@ -18,6 +18,18 @@ function createPhoneNumInput() {
     className: "phone-number-input",
     additionalAttr: { placeholder: "(+64) ......" }
   });
+  phoneNumberInput.addEventListener(
+    "keydown",
+    function(e) {
+      if (!e) {
+        const e = window.event;
+      }
+      if (e.keyCode == 13) {
+        navToPage(categoryEnum.busList);
+      }
+    }
+  );
+
   const nextButton = createHtmlElement({
     type: "button",
     className: "next-button",

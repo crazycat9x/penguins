@@ -28,7 +28,7 @@ function createCard(busNumber, cityName, button, callback) {
   const deleteButton = createHtmlElement({
     type: "button",
     className: "delete-button",
-    content: "X"
+    content: "remove"
   });
   const addButton = createHtmlElement({
     type: "button",
