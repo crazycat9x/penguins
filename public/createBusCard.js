@@ -2,10 +2,19 @@ function createCard(busNumber, cityName, button, callback) {
   const wrapper = createHtmlElement({ className: "bus-card" });
   const getStopInfo = () => {
     spinner.style.display = "block";
-    reqwest("GET", `/stopInfo?stopId=${busNumber}`).then(res => {
-      spinner.style.display = "none";
-      openModalWithData(res);
-    });
+    reqwest("GET", `/stopInfo?stopId=${busNumber}`)
+      .then(res => JSON.parse(res))
+      .then(res => res.map(e => [e.busNumber, e.busFinalDest, e.departTime]))
+      .then(res => {
+        spinner.style.display = "none";
+        openModalWithData(
+          createTable(
+            res,
+            ["number", "destination", "depart time"],
+            "bus-time-table"
+          )
+        );
+      });
   };
   const topSection = createHtmlElement({ className: "top-bus-card" });
   const bottomSection = createHtmlElement({ className: "bottom-bus-card" });
