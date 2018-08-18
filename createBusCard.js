@@ -1,25 +1,24 @@
 function createBusCard(busNumber, cityName, busStatus){
-  const wrapper = createHtmlElement({className: "bus-card"})
-  const number = createHtmlElement({className: "bus-number", content: busNumber})
-  const name = createHtmlElement({className: "city-name", content: cityName})
-  const deleteButton = createHtmlElement({className: "delete-button", content: "X"})
-  const status = createHtmlElement({className: "bus-status", content: busStatus})
-  wrapper.appendChild(number)
-  wrapper.appendChild(deleteButton)
-  wrapper.appendChild(name)
-  wrapper.appendChild(status)
-  return wrapper
+  const wrapper = createHtmlElement({className: "bus-card"});
+  const topSection = createHtmlElement({className: "top-bus-card"});
+  const bottomSection = createHtmlElement({className: "bottom-bus-card"});
+  const number = createHtmlElement({className: "bus-number", content: busNumber});
+  const name = createHtmlElement({className: "city-name", content: cityName});
+  const deleteButton = createHtmlElement({type: "button", className: "delete-button"});
+  deleteButton.addEventListener("click", ()=> wrapper.parentNode.removeChild(wrapper)); //send to backend
+  const status = createHtmlElement({className: "bus-status", content: busStatus});
+  topSection.appendChild(number);
+  topSection.appendChild(deleteButton);
+  bottomSection.appendChild(name);
+  bottomSection.appendChild(status);
+  wrapper.appendChild(topSection);
+  wrapper.appendChild(bottomSection);
+  return wrapper;
 }
 
 function renderBusListToPage(page){
   const routeDummyData = {
-    routeNumbers : [
-      {
-        "number": "267"
-      },
-      {
-        "number":"366"
-      },
+    "routeNumbers" : [
       {
         "number":"565"
       },
@@ -55,7 +54,12 @@ function renderBusListToPage(page){
 
   inputForm.addEventListener("keydown", function(e){
     if (!e) { const e = window.event;}
-    if (e.keyCode == 13) { openModalWithData(this.value); }
+    if (e.keyCode == 13) {
+      const temp = ""
+      for(const routeNumber of routeDummyData.routeNumbers){
+        temp += routeNumber
+      }
+      openModalWithData(temp);}
   }, false); //send to backend and display the result
 
   for (const route of dummyData.routes){
