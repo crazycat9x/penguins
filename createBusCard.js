@@ -80,7 +80,6 @@ function renderBusListToPage(page){
           routeListWrapper.appendChild(createCard(routeNumber.number, routeNumber.name, routeNumber.status, "true"));
           closeModal();});
 
-        // console.log(busRoute);
         searchWrapper.appendChild(busRoute);
         //add event listener so that it sends the route to the backend
       }
@@ -89,20 +88,10 @@ function renderBusListToPage(page){
 
   for (const route of dummyData.routes){
     // console.log(route);
-    console.log(route.number, route.name, route.status);
     const card = createCard(route.number, route.name, route.status, "true");
-    console.log(card);
     page.appendChild(routeListWrapper);
     routeListWrapper.appendChild(card);
   }
-  // reqwest("GET","url")
-  // .then(res => JSON.parse(res))
-  // .then(data => {
-  //   for(const i in data){
-  //     const card = createBusCard(data.number,data.name,data.status)
-  //     //card.addEventListener("click", ()=> openModalWithData("<div></div>"))
-  //     page.appendChild(card)
-  //   }
-  // })
+
   return page;
 }
