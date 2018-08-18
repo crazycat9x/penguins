@@ -1,7 +1,7 @@
 const categoryEnum = Object.freeze({
   home: "home",
-  phoneNum: "phone num",
-  busList: "bus list",
+  phoneNum: "Setup",
+  busList: "Alert Setup",
 });
 
 navToggleButton.addEventListener("click", function() {
