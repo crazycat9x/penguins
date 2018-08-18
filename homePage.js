@@ -1,5 +1,7 @@
 const renderHomePage = page => {
-  header = createHtmlElement({});
+  const header = createHtmlElement({});
+  const button = createHtmlElement({ type: "button", content: "start" });
+  button.addEventListener("click", () => navToPage(categoryEnum.busList));
   header.appendChild(
     createHtmlElement({
       type: "h1",
@@ -15,6 +17,6 @@ const renderHomePage = page => {
     })
   );
   page.appendChild(header);
-  page.appendChild(createHtmlElement({ type: "button", content: "start" }));
+  page.appendChild(button);
   return page;
 };
