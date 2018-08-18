@@ -33,7 +33,7 @@ function createCard(busNumber, cityName, button, callback) {
   const addButton = createHtmlElement({
     type: "button",
     className: "add-button",
-    content: "+"
+    content: "add"
   });
   deleteButton.addEventListener("click", () =>
     reqwest("DELETE", `/route?stopNumber=${busNumber}`).then(res =>
@@ -96,8 +96,8 @@ async function renderBusListToPage(page) {
             for (routeNumber of data) {
               console.log(routeNumber.stopName, routeNumber.stopCode);
               const busRoute = createCard(
-                routeNumber.stopName,
                 routeNumber.stopCode,
+                routeNumber.stopName,
                 "false",
                 routeListWrapper
               );

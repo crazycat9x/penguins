@@ -77,7 +77,17 @@
   justify-content: start;
 }
 
+#bus-time-table {
+  width: 100%;
+}
 
+.add-button {
+  padding: 0 10px 0 10px;
+
+  border-radius: 10px;
+
+  margin-bottom: -19px;
+}
 
 /* [id="link-to-Alert Setup"] {
   display: none;
@@ -97,9 +107,6 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
   }
-  .bus-card {
-    margin: 0;
-  }
 }
 
 @media (min-width: 748px) {
@@ -107,8 +114,5 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
-  }
-  .bus-card {
-    margin: 0;
   }
 }
