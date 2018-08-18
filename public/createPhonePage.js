@@ -1,5 +1,5 @@
 function createText() {
-  const text = "Penguin notifies you of bus cancellation through SMS";
+  const text = "Tell us your phone number so that we can notify you if the bus is coming late or if there is a bus cancellation via SMS";
   const textWrapper = createHtmlElement({ className: "text-wrapper" });
   const phoneText = createHtmlElement({
     className: "phone-text",
