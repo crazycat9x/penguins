@@ -1,0 +1,12 @@
+const parser = new DOMParser();
+const postComment = "http://redsox.uoa.auckland.ac.nz/ups/UniProxService.svc";
+const pageBody = document.querySelector("body");
+const pageTitle = document.getElementById("title");
+const pageContainer = document.getElementById("page-container");
+const mainNavBar = document.getElementById("main-nav");
+const navToggleButton = document.getElementById("toggle-nav-button");
+const modal = document.getElementById("modal");
+const modalContent = document.getElementById("modal-content");
+const modalCloseButton = document.getElementById("modal-close-button");
+const spinner = document.getElementById("spinner");
+let concurrencyCheck = 0;
