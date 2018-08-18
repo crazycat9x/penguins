@@ -5,8 +5,8 @@ function createBusCard(busNumber, cityName, busStatus){
   const deleteButton = createHtmlElement({type: "button", className: "delete-button"})
   const status = createHtmlElement({className: "bus-status", content: busStatus})
   wrapper.appendChild(number)
-  wrapper.appendChild(name)
   wrapper.appendChild(deleteButton)
+  wrapper.appendChild(name)
   wrapper.appendChild(status)
   return wrapper
 }

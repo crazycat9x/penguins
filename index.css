@@ -284,7 +284,7 @@ th {
   transition: 1s ease;
 }
 
-.card-section {
+.card-section, .bus-card {
   /* min-height: 266px; */
   width: 100%;
   background-color: white;

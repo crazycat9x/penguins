@@ -1,5 +1,5 @@
 const categoryEnum = Object.freeze({
-  "busList": "bus list"
+  busList: "bus list"
 });
 
 const parser = new DOMParser();
@@ -38,3 +38,17 @@ Object.values(categoryEnum).forEach(cat => {
 // document.getElementById("link-to-home").classList.toggle("active");
 // pageTitle.innerText = "home";
 // renderHomePage(pageContainer);
+
+//Register service worker
+if (navigator.serviceWorker) {
+  navigator.serviceWorker
+    .register("/serviceWorker.js")
+    .then(() => navigator.serviceWorker.ready)
+    .then(
+      registration => console.log(registration) // service worker is ready and working...
+    )
+    .catch(e => console.log(e));
+  navigator.serviceWorker.addEventListener("message", function(event) {
+    console.log(event.data.message); // Hello World !
+  });
+}
