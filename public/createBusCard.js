@@ -64,40 +64,45 @@ async function renderBusListToPage(page) {
   page.appendChild(routeListHeading);
   inputForm.addEventListener(
     "keydown",
-    async function(e) {
+    function(e) {
       if (!e) {
         const e = window.event;
       }
       if (e.keyCode == 13) {
         spinner.style.display = "block";
-        const data = await reqwest("GET", `/search?query=${this.value}`).then(
-          res => JSON.parse(res)
-        );
-        for (const routeNumber of data) {
-          const busRoute = createCard(
-            routeNumber.stopName,
-            routeNumber.stopCode,
-            "false",
-            async () => {
-              spinner.style.display = "block";
-              await reqwest(
-                "POST",
-                `/newStop?stopNumber=${routeNumber.stopCode}&stopName=${
-                  routeNumber.stopName
-                }`
+        reqwest("GET", `/search?query=${this.value}`)
+          .then(res => JSON.parse(res))
+          .then(data => {
+            for (routeNumber of data) {
+              const busRoute = createCard(
+                routeNumber.stopName,
+                routeNumber.stopCode,
+                "false",
+                async () => {
+                  spinner.style.display = "block";
+                  await reqwest(
+                    "POST",
+                    `/newStop?stopNumber=${routeNumber.stopCode}&stopName=${
+                      routeNumber.stopName
+                    }`
+                  );
+                  spinner.style.display = "none";
+                  routeListWrapper.appendChild(
+                    createCard(
+                      routeNumber.stopCode,
+                      routeNumber.stopName,
+                      "true"
+                    )
+                  );
+                  closeModal();
+                }
               );
-              spinner.style.display = "none";
-              routeListWrapper.appendChild(
-                createCard(routeNumber.stopCode, routeNumber.stopName, "true")
-              );
-              closeModal();
+              searchWrapper.appendChild(busRoute);
+              //add event listener so that it sends the route to the backend
             }
-          );
-          searchWrapper.appendChild(busRoute);
-          //add event listener so that it sends the route to the backend
-        }
-        spinner.style.display = "none";
-        openModalWithData(searchWrapper);
+            spinner.style.display = "none";
+            openModalWithData(searchWrapper);
+          });
       }
     },
     false
