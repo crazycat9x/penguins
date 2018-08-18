@@ -89,6 +89,10 @@
   margin-bottom: -19px;
 }
 
+.phone-input-wrapper {
+  width: 100%;
+}
+
 /* [id="link-to-Alert Setup"] {
   display: none;
 } */

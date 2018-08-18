@@ -62,6 +62,7 @@ th {
   display: table-cell;
   vertical-align: middle;
   border-radius: 2px;
+  text-align: center;
 }
 
 #title-bar {
