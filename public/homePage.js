@@ -1,7 +1,7 @@
 const renderHomePage = page => {
   const header = createHtmlElement({});
   const button = createHtmlElement({ type: "button", content: "start" });
-  button.addEventListener("click", () => navToPage(categoryEnum.busList));
+  button.addEventListener("click", () => navToPage(categoryEnum.phoneNum));
   header.appendChild(
     createHtmlElement({
       type: "h1",
