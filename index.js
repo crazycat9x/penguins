@@ -1,5 +1,4 @@
 const categoryEnum = Object.freeze({
-  home: "home"
 });
 
 const parser = new DOMParser();
