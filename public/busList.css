@@ -2,10 +2,11 @@
   display: flex;
   padding: 5px;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .bus-number {
-  font-size: 3rem;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
@@ -16,7 +17,7 @@
   justify-content: space-between;
 }
 .city-name {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .bus-status {
@@ -33,6 +34,50 @@
   font-weight: bolder;
   font-size: 2rem;
   cursor: pointer;
+}
+
+.phone-wrapper {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  height: 100%;
+}
+
+.phone-wrapper > .text-wrapper {
+  height: 100%;
+  font-size: 1.75rem;
+
+  text-align: center;
+
+  font-weight: bold;
+
+  padding-bottom: 20px;
+}
+
+.route-list-heading {
+  font-size: 1.25rem;
+}
+
+#page-container.bus.list-page {
+  padding: 10px 16px 0 16px;
+}
+
+#page-container.phone.num-page {
+  display: flex;
+  justify-content: center;
+}
+
+.phone-input-wrapper {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-around;
 }
 
 @media (min-width: 576px) {

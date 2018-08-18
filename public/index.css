@@ -147,7 +147,9 @@ th {
 }
 
 #page-container {
-  padding: 15px 10px 85px 10px;
+  min-height: calc(100vh - 58px);
+
+  padding: 10px 16px 0 16px;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -403,7 +405,9 @@ th {
 }
 
 #comment-box-textarea,
-.add-bar {
+.add-bar,
+.phone-number-input {
+  height: 50px;
   outline: none;
   resize: none;
   background-color: #ffffff;
