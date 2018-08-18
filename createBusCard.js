@@ -49,13 +49,14 @@ function renderBusListToPage(page){
       }
     ]
   }
+
   const inputForm = createHtmlElement({type: "input", className: "add-bar", additionalAttr:{"placeholder": "Add a route"}});
   page.appendChild(inputForm);
 
   inputForm.addEventListener("keydown", function(e){
     if (!e) { const e = window.event;}
     if (e.keyCode == 13) {
-      const temp = ""
+      let temp = ""
       for(const routeNumber of routeDummyData.routeNumbers){
         temp += routeNumber
       }
