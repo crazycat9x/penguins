@@ -64,9 +64,9 @@ function renderBusListToPage(page){
   inputForm.addEventListener("keydown", function(e){
     if (!e) { const e = window.event;}
     if (e.keyCode == 13) {
-      let temp = ""
       for(const routeNumber of routeDummyData.routeNumbers.values()){
-        console.log(routeNumber);
+        const topSection = createHtmlElement({className: "top-search-card"});
+        const bottomSection = createHtmlElement({className: "bottom-search-card"});
         const busRoute = createHtmlElement({className: "route-number", content: routeNumber.number});
         busRoute.addEventListener("click", ()=> {
           console.log(page)
