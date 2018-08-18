@@ -18,6 +18,9 @@ const navToPage = async pageName => {
     case categoryEnum.busList:
       await renderBusListToPage(page);
       break;
+    case categoryEnum.phoneNum:
+      renderPhoneSignUpToPage(page);
+      break;
   }
 
   if (thisLoadCheck == concurrencyCheck) {

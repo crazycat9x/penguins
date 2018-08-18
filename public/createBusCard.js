@@ -37,7 +37,17 @@ function createCard(busNumber, cityName, button, callback) {
     topSection.appendChild(deleteButton);
   }
   if (button === "false") {
-    addButton.addEventListener("click", callback);
+    addButton.addEventListener("click", () => {
+      spinner.style.display = "block";
+      reqwest(
+        "POST",
+        `/newStop?stopNumber=${busNumber}&stopName=${cityName}`
+      ).then(res => {
+        spinner.style.display = "none";
+        callback.appendChild(createCard(cityName, busNumber, "true"));
+        closeModal();
+      });
+    });
     topSection.appendChild(addButton);
   }
   bottomSection.appendChild(name);
@@ -69,33 +79,18 @@ async function renderBusListToPage(page) {
         const e = window.event;
       }
       if (e.keyCode == 13) {
+        searchWrapper.innerHTML = "";
         spinner.style.display = "block";
         reqwest("GET", `/search?query=${this.value}`)
           .then(res => JSON.parse(res))
           .then(data => {
             for (routeNumber of data) {
+              console.log(routeNumber.stopName, routeNumber.stopCode);
               const busRoute = createCard(
                 routeNumber.stopName,
                 routeNumber.stopCode,
                 "false",
-                async () => {
-                  spinner.style.display = "block";
-                  await reqwest(
-                    "POST",
-                    `/newStop?stopNumber=${routeNumber.stopCode}&stopName=${
-                      routeNumber.stopName
-                    }`
-                  );
-                  spinner.style.display = "none";
-                  routeListWrapper.appendChild(
-                    createCard(
-                      routeNumber.stopCode,
-                      routeNumber.stopName,
-                      "true"
-                    )
-                  );
-                  closeModal();
-                }
+                routeListWrapper
               );
               searchWrapper.appendChild(busRoute);
               //add event listener so that it sends the route to the backend
@@ -117,6 +112,46 @@ async function renderBusListToPage(page) {
   }
 
   page.appendChild(routeListWrapper);
+
+  return page;
+}
+
+function createText() {
+  const text = "Penguin notifies you of bus cancellation through SMS";
+  const textWrapper = createHtmlElement({ className: "text-wrapper" });
+  const phoneText = createHtmlElement({
+    className: "phone-text",
+    content: text
+  });
+  textWrapper.appendChild(phoneText);
+
+  return textWrapper;
+}
+function createPhoneNumInput() {
+  const phoneInputWrapper = createHtmlElement({
+    className: "phone-input-wrapper"
+  });
+  const phoneNumberInput = createHtmlElement({
+    type: "input",
+    className: "phone-number-input",
+    additionalAttr: { placeholder: "(+64) ......" }
+  });
+  const nextButton = createHtmlElement({
+    type: "button",
+    className: "next-button",
+    content: "Next"
+  }); //No functionality
+  nextButton.addEventListener("click", () => navToPage(categoryEnum.busList));
+  phoneInputWrapper.appendChild(phoneNumberInput);
+  phoneInputWrapper.appendChild(nextButton);
+
+  return phoneInputWrapper;
+}
+function renderPhoneSignUpToPage(page) {
+  const wrapper = createHtmlElement({ className: "phone-wrapper" });
+  wrapper.appendChild(createText());
+  wrapper.appendChild(createPhoneNumInput());
+  page.appendChild(wrapper);
 
   return page;
 }
