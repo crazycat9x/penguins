@@ -16,14 +16,13 @@ const navToPage = async pageName => {
       renderHomePage(page);
       break;
     case categoryEnum.busList:
-    renderBusListToPage(page);
-    break;
+      renderBusListToPage(page);
+      break;
   }
-
 
   if (thisLoadCheck == concurrencyCheck) {
     spinner.style.display = "none";
-    pageContainer.classList = `${pageName}-page`;
+    pageContainer.className = `${pageName}-page`;
     pageContainer.appendChild(page);
   }
 };

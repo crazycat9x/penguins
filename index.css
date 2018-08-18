@@ -286,7 +286,6 @@ th {
 
 .card-section, .bus-card {
   /* min-height: 266px; */
-  width: 100%;
   background-color: white;
   margin-bottom: 36px;
   padding: 0;
@@ -403,7 +402,6 @@ th {
 }
 
 #comment-box-textarea, .add-bar {
-  width: 100%;
   outline: none;
   resize: none;
   background-color: #ffffff;
@@ -467,4 +465,14 @@ th {
   #modal.active {
     top: 0;
   }
+}
+
+#page-container.home-page {
+  height: calc(100vh - 3rem - 40px);
+  display: flex;
+  justify-content: space-around;
+}
+
+.big-title, .smaller-title {
+  text-align: center;
 }
