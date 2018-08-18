@@ -15,6 +15,9 @@ const navToPage = async pageName => {
     case categoryEnum.home:
       renderHomePage(page);
       break;
+    case categoryEnum.busList:
+    renderBusListToPage(page);
+    break;
   }
 
 

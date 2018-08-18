@@ -1,4 +1,5 @@
 const categoryEnum = Object.freeze({
+  "busList": "bus list"
 });
 
 const parser = new DOMParser();
@@ -34,6 +35,6 @@ Object.values(categoryEnum).forEach(cat => {
 });
 
 // set up home page
-document.getElementById("link-to-home").classList.toggle("active");
-pageTitle.innerText = "home";
-renderHomePage(pageContainer);
+// document.getElementById("link-to-home").classList.toggle("active");
+// pageTitle.innerText = "home";
+// renderHomePage(pageContainer);
