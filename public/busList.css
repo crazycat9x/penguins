@@ -67,10 +67,21 @@
   padding: 10px 16px 0 16px;
 }
 
-#page-container.phone.num-page {
+#page-container.Setup-page {
   display: flex;
   justify-content: center;
 }
+
+#page-container.Alert.Setup-page {
+  display: flex;
+  justify-content: start;
+}
+
+
+
+/* [id="link-to-Alert Setup"] {
+  display: none;
+} */
 
 .phone-input-wrapper {
   display: flex;
