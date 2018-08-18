@@ -4,7 +4,7 @@ function createBusCard(busNumber, cityName, busStatus){
   const bottomSection = createHtmlElement({className: "bottom-bus-card"});
   const number = createHtmlElement({className: "bus-number", content: busNumber});
   const name = createHtmlElement({className: "city-name", content: cityName});
-  const deleteButton = createHtmlElement({type: "button", className: "delete-button"});
+  const deleteButton = createHtmlElement({type: "button", className: "delete-button", content: "X"});
   deleteButton.addEventListener("click", ()=> wrapper.parentNode.removeChild(wrapper)); //send to backend
   const status = createHtmlElement({className: "bus-status", content: busStatus});
   topSection.appendChild(number);

@@ -1,4 +1,5 @@
 const categoryEnum = Object.freeze({
+  home: "home",
   busList: "bus list"
 });
 
@@ -35,20 +36,6 @@ Object.values(categoryEnum).forEach(cat => {
 });
 
 // set up home page
-// document.getElementById("link-to-home").classList.toggle("active");
-// pageTitle.innerText = "home";
-// renderHomePage(pageContainer);
+document.getElementById("link-to-home").classList.toggle("active");
+navToPage("home")
 
-//Register service worker
-if (navigator.serviceWorker) {
-  navigator.serviceWorker
-    .register("/serviceWorker.js")
-    .then(() => navigator.serviceWorker.ready)
-    .then(
-      registration => console.log(registration) // service worker is ready and working...
-    )
-    .catch(e => console.log(e));
-  navigator.serviceWorker.addEventListener("message", function(event) {
-    console.log(event.data.message); // Hello World !
-  });
-}
