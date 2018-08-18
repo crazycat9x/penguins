@@ -1,10 +1,5 @@
 const categoryEnum = Object.freeze({
-  home: "home",
-  courses: "courses",
-  news: "news",
-  notices: "notices",
-  people: "people",
-  comments: "guest book"
+  home: "home"
 });
 
 const parser = new DOMParser();
@@ -24,6 +19,19 @@ navToggleButton.addEventListener("click", function() {
   mainNavBar.classList.toggle("active")
     ? this.classList.add("active")
     : this.classList.remove("active");
+});
+
+// create navigation items
+Object.values(categoryEnum).forEach(cat => {
+  const button = createHtmlElement({
+    className: "nav-item",
+    id: `link-to-${cat}`,
+    content: cat
+  });
+  button.addEventListener("click", function() {
+    navToPage(cat);
+  });
+  mainNavBar.appendChild(button);
 });
 
 // set up home page

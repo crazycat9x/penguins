@@ -9,11 +9,15 @@ const navToPage = async pageName => {
   applyToAll(".nav-item", e => e.classList.remove("active"));
   document.getElementById(`link-to-${pageName}`).classList.add("active");
   spinner.style.display = "block";
+
+  // Pages go here!!!
   switch (pageName) {
     case categoryEnum.home:
       renderHomePage(page);
       break;
   }
+
+
   if (thisLoadCheck == concurrencyCheck) {
     spinner.style.display = "none";
     pageContainer.classList = `${pageName}-page`;
