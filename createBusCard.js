@@ -66,11 +66,11 @@ function renderBusListToPage(page){
     ]
   }
   const searchWrapper = createHtmlElement({className: "search-wrapper"});
+  const routeListHeading = createHtmlElement({className: "route-list-heading", content: "Monitored Route"});
   const routeListWrapper = createHtmlElement({className: "route-list-wrapper"})
-
-  const inputForm = createHtmlElement({type: "input", className: "add-bar", additionalAttr:{"placeholder": "Add a route"}});
+  const inputForm = createHtmlElement({type: "input", className: "add-bar", additionalAttr:{"placeholder": "+ Add a route (ie. 667)"}});
   page.appendChild(inputForm);
-
+  page.appendChild(routeListHeading);
   inputForm.addEventListener("keydown", function(e){
     if (!e) { const e = window.event;}
     if (e.keyCode == 13) {
