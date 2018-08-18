@@ -53,7 +53,7 @@ function createCard(busNumber, cityName, button, callback) {
         `/newStop?stopNumber=${busNumber}&stopName=${cityName}`
       ).then(res => {
         spinner.style.display = "none";
-        callback.appendChild(createCard(cityName, busNumber, "true"));
+        callback.appendChild(createCard(busNumber, cityName, "true"));
         closeModal();
       });
     });
