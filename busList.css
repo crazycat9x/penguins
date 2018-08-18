@@ -1,8 +1,7 @@
 .bus-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   padding: 5px;
+  flex-direction: column;
 }
 
 .bus-number {
@@ -10,6 +9,12 @@
   font-weight: bold;
 }
 
+.top-bus-card,
+.bottom-bus-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .city-name {
   font-size: 2.5rem;
 }
@@ -20,9 +25,9 @@
 }
 
 .delete-button {
+  background-color: transparent;
   padding-right: 10px;
   text-align: right;
-  background-color: none;
   color: red;
   font-weight: bolder;
   font-size: 3rem;
