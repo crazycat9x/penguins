@@ -402,22 +402,19 @@ th {
   justify-content: center;
 }
 
-#comment-box-textarea {
-  width: calc(100% - 100px);
+#comment-box-textarea, .add-bar {
+  width: 100%;
   outline: none;
   resize: none;
   background-color: #ffffff;
-  border-bottom: solid;
-  border-bottom-color: currentcolor;
-  border-top: solid;
-  border-top-color: currentcolor;
-  border-left: solid;
-  border-left-color: currentcolor;
+  border: solid;
   border-color: #e2e2e2;
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px;
   padding: 7px;
   height: 50px;
   overflow-y: auto;
+  margin-bottom: 20px;
+  font-size: 2rem;
 }
 
 #comment-box-title-wrapper {

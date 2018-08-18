@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  padding: 5px
+  padding: 5px;
 }
 
 .bus-number {
@@ -17,4 +17,14 @@
 .bus-status {
   text-align: right;
   font-size: 3rem;
+}
+
+.delete-button {
+  padding-right: 10px;
+  text-align: right;
+  background-color: none;
+  color: red;
+  font-weight: bolder;
+  font-size: 3rem;
+  cursor: pointer;
 }

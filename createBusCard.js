@@ -2,7 +2,7 @@ function createBusCard(busNumber, cityName, busStatus){
   const wrapper = createHtmlElement({className: "bus-card"})
   const number = createHtmlElement({className: "bus-number", content: busNumber})
   const name = createHtmlElement({className: "city-name", content: cityName})
-  const deleteButton = createHtmlElement({type: "button", className: "delete-button"})
+  const deleteButton = createHtmlElement({className: "delete-button", content: "X"})
   const status = createHtmlElement({className: "bus-status", content: busStatus})
   wrapper.appendChild(number)
   wrapper.appendChild(deleteButton)
