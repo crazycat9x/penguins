@@ -5,7 +5,7 @@ const renderHomePage = page => {
   header.appendChild(
     createHtmlElement({
       type: "h1",
-      content: "Penguin Welcome",
+      content: "Pingu Welcome",
       className: "big-title"
     })
   );
@@ -13,7 +13,7 @@ const renderHomePage = page => {
     createHtmlElement({
       type: "h2",
       className: "smaller-title",
-      content: "Penguin notifies you if your bus is cancelled or late"
+      content: "Pingu notifies you if your bus is cancelled or late"
     })
   );
   page.appendChild(header);
