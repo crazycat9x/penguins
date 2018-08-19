@@ -30,6 +30,8 @@ app.get("/stopInfo", (req, res) =>
   AT.getStopInfoById(req.query.stopId).then(data => res.send(data))
 );
 
+app.get("/delays", (req, res) => AT.getDelays().then(data => res.send(data)));
+
 app.post("/newStop", (req, res) => {
   route.push({
     stopNumber: req.query.stopNumber,

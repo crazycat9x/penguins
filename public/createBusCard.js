@@ -20,7 +20,7 @@ function createCard(busNumber, cityName, button, callback) {
   const bottomSection = createHtmlElement({ className: "bottom-bus-card" });
   const number = createHtmlElement({
     className: "bus-number",
-    content: busNumber
+    content: String(busNumber)
   });
   const name = createHtmlElement({ className: "city-name", content: cityName });
   name.addEventListener("click", getStopInfo);
@@ -42,8 +42,8 @@ function createCard(busNumber, cityName, button, callback) {
   ); //send to backend
   topSection.appendChild(number);
   if (button === "true") {
-    console.log("hi");
-    topSection.appendChild(deleteButton);
+    topSection.append(createHtmlElement({content: callback}))
+    // topSection.appendChild(deleteButton);
   }
   if (button === "false") {
     addButton.addEventListener("click", () => {
@@ -112,11 +112,11 @@ async function renderBusListToPage(page) {
     false
   ); //send to backend and display the result
 
-  for (const route of await reqwest("GET", "/routes").then(res =>
+  for (const route of await reqwest("GET", "/delays").then(res =>
     JSON.parse(res)
   )) {
     console.log(route);
-    const card = createCard(route.stopNumber, route.stopName, "true");
+    const card = createCard(route.stopId, route.busCode, "true", route.delay);
     routeListWrapper.appendChild(card);
   }
 
