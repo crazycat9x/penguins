@@ -5,7 +5,7 @@ const renderHomePage = page => {
   header.appendChild(
     createHtmlElement({
       type: "h1",
-      content: "Pingu Welcome",
+      content: "Pingu",
       className: "big-title"
     })
   );
