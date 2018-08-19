@@ -41,10 +41,6 @@ function createCard(busNumber, cityName, button, callback) {
     )
   ); //send to backend
   topSection.appendChild(number);
-  if (button === "true") {
-    topSection.append(createHtmlElement({content: callback}))
-    // topSection.appendChild(deleteButton);
-  }
   if (button === "false") {
     addButton.addEventListener("click", () => {
       spinner.style.display = "block";
@@ -60,6 +56,10 @@ function createCard(busNumber, cityName, button, callback) {
     topSection.appendChild(addButton);
   }
   bottomSection.appendChild(name);
+  if (button === "true") {
+    bottomSection.append(createHtmlElement({content: callback}))
+    topSection.appendChild(deleteButton);
+  }
   wrapper.appendChild(topSection);
   wrapper.appendChild(bottomSection);
   return wrapper;
@@ -116,7 +116,7 @@ async function renderBusListToPage(page) {
     JSON.parse(res)
   )) {
     console.log(route);
-    const card = createCard(route.stopId, route.busCode, "true", route.delay);
+    const card = createCard(route.busCode, route.stopId, "true", route.delay);
     routeListWrapper.appendChild(card);
   }
 

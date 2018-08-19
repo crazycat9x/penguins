@@ -52,7 +52,7 @@ const getDelays = () =>
     .then(data =>
       data.map(e => ({
         stopId: e.stopId.slice(0, e.stopId.indexOf("-")),
-        busCode: e.routeId.slice(0, 4),
+        busCode: e.routeId.slice(0, 3),
         delay:
           typeof e.delay == "number"
             ? e.delay < 0
