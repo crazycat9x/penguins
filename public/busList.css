@@ -111,10 +111,10 @@
   justify-content: space-around;
 }
 
-input,
+/* input,
 input::-webkit-input-placeholder {
     font-size: 90%;
-}
+} */
 
 @media (min-width: 576px) {
   .route-list-wrapper {
@@ -129,5 +129,11 @@ input::-webkit-input-placeholder {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
+  }
+}
+@media (max-width: 768px){
+  input,
+  input::-webkit-input-placeholder {
+      font-size: 70%;
   }
 }
