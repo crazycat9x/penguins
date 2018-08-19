@@ -149,7 +149,7 @@ th {
 
 #page-container {
   min-height: calc(100vh - 58px);
-
+  background-color: #fafafa;
   padding: 10px 16px 0 16px;
   display: flex;
   flex-direction: column;

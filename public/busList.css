@@ -25,7 +25,7 @@
   font-size: 2rem;
 }
 
-.delete-button {
+/* .delete-button {
   background-color: transparent;
   padding: 0;
   padding-right: 10px;
@@ -34,7 +34,7 @@
   font-weight: bolder;
   font-size: 2rem;
   cursor: pointer;
-}
+} */
 
 .phone-wrapper {
   display: flex;
@@ -81,12 +81,18 @@
   width: 100%;
 }
 
-.add-button {
+.add-button,
+.delete-button {
   padding: 0 10px 0 10px;
 
   border-radius: 10px;
 
   margin-bottom: -19px;
+}
+
+.delete-button {
+  background-color: #ef5350;
+  font-size: 1rem
 }
 
 .phone-input-wrapper {
