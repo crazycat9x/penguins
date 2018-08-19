@@ -111,6 +111,11 @@
   justify-content: space-around;
 }
 
+input,
+input::-webkit-input-placeholder {
+    font-size: 90%;
+}
+
 @media (min-width: 576px) {
   .route-list-wrapper {
     display: grid;
